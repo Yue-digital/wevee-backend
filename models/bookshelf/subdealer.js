@@ -1,0 +1,24 @@
+export default function subdealer(bookshelf){
+    const SubdealerBookshelf = bookshelf.model(
+      'SubDealer',
+      {
+        tableName: 'subdealer',
+       
+        corporate(){
+          return this.belongsTo('Corporate', 'sub_dealer_id', 'id')
+        }
+      }
+    )
+  
+    const CorporateBookshelf = bookshelf.model('Corporate', {
+      tableName: 'corporate',
+      
+    })
+
+
+    return {
+        SubdealerBookshelf,
+        CorporateBookshelf
+    }
+  }
+  
